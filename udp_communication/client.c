@@ -10,9 +10,14 @@ int main() {
 
     connect(sockfd, (struct sockaddr*)&serv, sizeof(serv));
 
-    char buf[100];
-    recv(sockfd, buf, sizeof(buf), 0);
-    printf("Received: %s\n", buf);
+    // Send message to server
+    char msg[] = "Hello from Client!";
+    send(sockfd, msg, sizeof(msg), 0);
+
+    // Receive reply from server
+    char buffer[100];
+    recv(sockfd, buffer, sizeof(buffer), 0);
+    printf("Server: %s\n", buffer);
 
     close(sockfd);
 }

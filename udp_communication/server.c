@@ -16,7 +16,14 @@ int main() {
     listen(sockfd, 5);
 
     int client = accept(sockfd, NULL, NULL);
-    char msg[] = "Hello, Client!";
+
+    // Receive message from client
+    char buffer[100];
+    recv(client, buffer, sizeof(buffer), 0);
+    printf("Client: %s\n", buffer);
+
+    // Send reply to client
+    char msg[] = "Hello from Server!";
     send(client, msg, sizeof(msg), 0);
 
     close(client);
