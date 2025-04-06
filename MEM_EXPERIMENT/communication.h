@@ -1,8 +1,4 @@
 // communication.h
-
-#ifndef COMMUNICATION_H
-#define COMMUNICATION_H
-
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -104,5 +100,3 @@ void close_all() {
     if (is_tcp && clientfd) close(clientfd);
     close(sockfd);
 }
-
-#endif
